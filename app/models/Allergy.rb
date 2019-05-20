@@ -2,7 +2,7 @@ class Allergy
   # join btwn User and /ingredient
   @@all = []
 
-  attr_accessor :name, :ingredient
+  attr_accessor :user, :ingredient
 
   def initialize(user, ingredient)
     @user = user
