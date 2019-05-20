@@ -10,6 +10,8 @@ banana = Ingredient.new("banana")
 cream = Ingredient.new("cream")
 crust = Ingredient.new("crust")
 vanilla = Ingredient.new("vanilla")
+strawberry = Ingredient.new("strawberry")
+sugar = Ingredient.new("sugar")
 
 #allergy
 
@@ -18,6 +20,7 @@ rachel_banana_allergy = Allergy.new(rachel, banana)
 
 # recipe
 banana_pie = Recipe.new("Banana Pie")
+strawberry_pie = Recipe.new("Strawberry Pie")
 
 #RecipeIngredient
 
@@ -27,7 +30,8 @@ one_cream = RecipeIngredient.new(cream, banana_pie)
 
 
 # recipecard
-pam_recipecard = RecipeCard.new("May 1", 8, pam, banana_pie)
+pam_recipecard_banana_pie = RecipeCard.new("May 1", 8, pam, banana_pie)
+
 
 
 binding.pry
