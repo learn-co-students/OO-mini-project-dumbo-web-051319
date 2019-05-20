@@ -31,8 +31,9 @@ class User
   end
   def most_recent_recipe
     # month_str = self.recipes.sort_by{|recipecard| recipecard.date[0..1].to_i}[-1].date[0..1]
-    # ary_temp = self.recipes.select{|recipecard| recipecard.date[0..1] = month_str}
+    # ary_temp = self.recipes.select{|recipecard| recipecard.date[0..1] == month_str}
     # ary_temp.sort_by{|recipecard| recipecard.date[3..4].to_s}[-1].recipe
-    self.recipes.select{|recipecard| recipecard.date[0..1] = self.recipes.sort_by{|recipecard| recipecard.date[0..1].to_i}[-1].date[0..1]}.sort_by{|recipecard| recipecard.date[3..4].to_s}[-1].recipe
+    # binding.pry
+    self.recipes.select{|recipecard| recipecard.date[0..1] == self.recipes.sort_by{|recipecard| recipecard.date[0..1].to_i}[-1].date[0..1]}.sort_by{|recipecard| recipecard.date[3..4].to_s}[-1].recipe
   end
 end
