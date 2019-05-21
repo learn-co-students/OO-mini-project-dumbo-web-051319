@@ -52,6 +52,9 @@ class Recipe
     end   
 
     def self.most_popular
-        
+        new_hash = Hash.new(0)
+        recipe = RecipeCard.all.map {|card| card.recipe}
+        recipe.map {|recipe| new_hash[recipe] += 1}
+        new_hash.map {|recipe, count| return recipe if count == new_hash.values.max}
     end    
 end

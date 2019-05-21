@@ -32,6 +32,11 @@ class User
     def allergens
         Allergy.all.select {|allergy| allergy.user == self}
     end
-    
-    
+
+    def top_three_recipes
+        new_hash = Hash.new(0)
+        recipe_cards.map {|card| new_hash[card] = card.rating}
+        top3hash = new_hash.sort_by{|k,v| v}.last(3).reverse
+        top3hash.map {|info| info[0]}
+    end
 end

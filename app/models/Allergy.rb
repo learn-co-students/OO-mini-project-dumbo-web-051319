@@ -12,7 +12,7 @@ class Allergy
 
     def self.allergy_ing
        @@all.map {|allergy| allergy.ingredient} 
-    end   
+    end  
 
     def self.all
         @@all
