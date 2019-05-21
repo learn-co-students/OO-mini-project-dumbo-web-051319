@@ -1,4 +1,4 @@
-class Allergy
+class Allergy 
   attr_reader :name, :user, :ingredient
   @@all = []
   def initialize (name, user, ingredient)

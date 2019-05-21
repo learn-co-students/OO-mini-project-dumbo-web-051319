@@ -1,5 +1,4 @@
 require_relative '../config/environment.rb'
-
 tom_u = User.new("Tom")
 tim_u = User.new("Tim")
 ken_u = User.new("Ken")
