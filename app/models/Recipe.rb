@@ -32,7 +32,8 @@ class Recipe
 
   def ingredients
     # returns ALL ingredients in this recipe
-    RecipeIngredient.all.select {|r_i| r_i.recipe == self}
+    recipe_ingredients = RecipeIngredient.all.select {|r_i| r_i.recipe == self}
+    recipe_ingredients.map {|r_i| r_i.ingredient}
   end
 
   def allergens

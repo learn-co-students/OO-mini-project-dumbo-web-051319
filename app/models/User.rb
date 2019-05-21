@@ -38,12 +38,16 @@ class User
   def top_three_recipes
     # return top three highest rated recipe cards
     # iterate thru recipe cards
-    # finding rating
-    new_array = []
-      RecipeCard.all.each do |rc|
-      new_array << rc.rating.sort {|x, y| y <=> x}
-  end
-  new_array[0..2]
+  #   # finding rating
+  #   new_array = []
+  #     RecipeCard.all.each do |rc|
+  #     new_array << rc.rating.sort {|x, y| y <=> x}
+  # end
+  # new_array[0..2]
+
+  # return the top three highest rated recipes for this user
+      RecipeCard.all.sort { |a, b| b.rating <=> a.rating }.first(3).map { |card| card.recipe }
+
   end
 
   def most_recent_recipe
