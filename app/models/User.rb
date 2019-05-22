@@ -35,14 +35,9 @@ class User
   end
 
   def top_three_recipes
-    # return top three highest rated recipe cards
-    # iterate thru recipe cards
-    # finding rating
-    new_array = []
-      RecipeCard.all.each do |rc|
-      new_array << rc.rating.sort {|x, y| y <=> x}
-  end
-  new_array[0..2]
+  our_recipes = self.recipes
+  sorted_recipes = our_recipes.sort {|x, y| y.rating <=> x.rating}
+  sorted_recipes[0..2]
   end
 
   def most_recent_recipe
@@ -50,5 +45,16 @@ class User
     # add_recipe_card ?
     recipes[-1]
   end
+
+  # def safe_recipes
+  #   # know the users allergens then compare to the list of ingredients
+  #   allergic = self.allergens
+  #   not_safe = allergic.map {|x| x.ingredient}
+  #   not_safe.each do |x|
+  #     safe = RecipeIngredient.all.delete_if {|card| card.ingredient == x}
+  #     safe_r = safe.map {|y| y.recipe}
+  #   end
+  #   safe_r.uniq
+  # end
 
 end

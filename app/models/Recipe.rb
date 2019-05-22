@@ -13,16 +13,12 @@ class Recipe
   end
 
   def self.most_popular
-    # recipe instances with most recipe cards
-    new_hash = {}
+
+    new_hash = Hash.new(0)
     RecipeCard.all.each do |rc|
-      if new_hash[rc.recipe]
-        new_hash[rc.recipe] += 1
-      else
-        new_hash[rc.recipe] = 1
-      end
+      new_hash[rc.recipe] += 1
     end
-    new_hash.max_by {|k,v| v}
+    new_hash.max_by{|k,v| v}[0]
   end
 
   def users

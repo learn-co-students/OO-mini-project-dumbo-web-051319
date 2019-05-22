@@ -16,15 +16,11 @@ class Ingredient
     # return ingredient instance most users are allergic too
     # Allergy.all find Allergy.ingredient == self
     # find most common allergen
-    new_hash = {}
+    new_hash = Hash.new(0)
     Allergy.all.each do |allergen|
-      if new_hash[allergen.ingredient]
-        new_hash[allergen.ingredient] += 1
-      else
-        new_hash[allergen.ingredient] = 1
+      new_hash[allergen.ingredient] += 1
       end
+      new_hash.max_by {|k,v| v}[0]
     end
-    new_hash.max_by {|k,v| v}
-  end
 
 end
